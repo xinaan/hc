@@ -3,8 +3,17 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welocme#index'
+  root 'home#index', as: :home
+  get 'logout', to: 'access#logout'
+  get "login", to: "access#login", as: :login
 
+  resources :users
+  resources :faculties
+  resources :courses
+  resources :settings
+  get 'faculties/:id/invisible', to: 'faculties#invisible', as: :invisible_faculty
+  get 'courses/:id/invisible', to: 'courses#invisible', as: :invisible_course
+  match ':controller(/:action(/:id(.:format)))', via: :all
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

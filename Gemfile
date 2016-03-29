@@ -1,6 +1,6 @@
-source 'http://rubygems.org'
-
-
+source 'https://rubygems.org'
+gem 'cocoon'
+gem 'bootstrap-sass', '~> 3.3.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record

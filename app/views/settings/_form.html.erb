@@ -1,0 +1,136 @@
+<%= form_for @setting, :html => { class:"form-horizontal"} do |f| %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Settings</h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group <%= "has-error" if @setting.errors[:title].any? %> ">
+		<%= f.label 'Title', class:"col-sm-2 control-label"%>
+		<div class="col-sm-10">
+			  <%= f.text_field :title, placeholder:"Name",maxlength:15, class:"form-control" %>
+			  <% if @setting.errors[:title].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:title).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+			  <% end %>
+		</div>
+	</div>
+
+    <div class="form-group <%= "has-error" if @setting.errors[:intro].any? %> ">
+      <%= f.label 'Introduction', class:"col-sm-2 control-label"%>
+      <div class="col-sm-10">
+        <%= f.text_area :intro, size: "24x6", class:"form-control" %>
+        <% if @setting.errors[:intro].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:intro).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group <%= "has-error" if @setting.errors[:jheader].any? %> ">
+      <%= f.label 'Jumbtron Header', class:"col-sm-2 control-label"%>
+      <div class="col-sm-10">
+        <%= f.text_field :jheader, placeholder:"Short Name",maxlength:20, class:"form-control" %>
+        <% if @setting.errors[:jheader].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:jheader).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+        <% end %>
+      </div>
+    </div>
+	
+	<div class="form-group <%= "has-error" if @setting.errors[:jtext].any? %> ">
+      <%= f.label 'Jumbtron Text', class:"col-sm-2 control-label"%>
+      <div class="col-sm-10">
+        <%= f.text_field :jtext, placeholder:"Short Name",maxlength:200, class:"form-control" %>
+        <% if @setting.errors[:jtext].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:jtext).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group <%= "has-error" if @setting.errors[:lbook].any? %> ">
+      <%= f.label 'Book Link', class:"col-sm-2 control-label"%>
+      <div class="col-sm-10">
+        <%= f.text_field :lbook, placeholder:"Short Name",maxlength:200, class:"form-control" %>
+        <% if @setting.errors[:lbook].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:lbook).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group <%= "has-error" if @setting.errors[:lform].any? %> ">
+      <%= f.label 'Form Link', class:"col-sm-2 control-label"%>
+      <div class="col-sm-10">
+        <%= f.text_field :lform, placeholder:"Short Name",maxlength:200, class:"form-control" %>
+        <% if @setting.errors[:lform].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:lform).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group <%= "has-error" if @setting.errors[:deadline].any? %> ">
+      <%= f.label 'Deadline', class:"col-sm-2 control-label"%>
+      <div class="col-sm-10">
+        <%= f.date_field :deadline,  class:"form-control" %>
+        <% if @setting.errors[:deadline].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:deadline).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group <%= "has-error" if @setting.errors[:alert].any? %> ">
+      <%= f.label 'Alert', class:"col-sm-2 control-label"%>
+      <div class="col-sm-10">
+        <%= f.text_field :alert, placeholder:"Short Name",maxlength:200, class:"form-control" %>
+        <% if @setting.errors[:alert].any? %>
+				  <span class="help-block">
+				  <% @setting.errors.full_messages_for(:alert).each do |msg| %>
+					<%= msg %><br>
+				  <% end %>
+				  </span>
+        <% end %>
+      </div>
+    </div>
+
+
+
+ </div>
+ <div class="panel-footer">
+	  <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<div class="btn-group">
+						<%= f.submit class:"btn btn-success" %>
+						<% end %> 
+						
+				</div>
+			
+			</div>
+	  </div>
+  </div>
+</div> 
+  

@@ -18,15 +18,20 @@ class AccessController < ApplicationController
   end
 
   def attempt_login
-    authorized_user = User.authenticate(params[:username], params[:password])
-    if authorized_user
-      session[:user_id] = authorized_user.id
-      session[:username] = authorized_user.username
-      redirect_to faculties_path
+    if session[:user_id]
+      redirect_to(:controller => 'faculties', :action => 'index')
     else
-      flash[:notice]= "Invalid Username/Password Try Again"
-      redirect_to(action: 'login')
+      authorized_user = User.authenticate(params[:username], params[:password])
+      if authorized_user
+        session[:user_id] = authorized_user.id
+        session[:username] = authorized_user.username
+        redirect_to faculties_path
+      else
+        flash[:notice]= "Invalid Username/Password Try Again"
+        redirect_to(action: 'login')
+      end
     end
+
   end
 
   def attempt_verify

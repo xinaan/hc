@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   layout 'application'
   def index
-    @faculty = Faculty.active
+    @faculties = Faculty.active.order(:short)
   end
 end

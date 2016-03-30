@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   def confirm_logged_in
     if session[:user_id]
-      flash[:notice] = "Please Verify Your Account"
+
       false # halts the before_filter
     else
       flash[:notice] = "Please log in to Access this page"

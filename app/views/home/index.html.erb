@@ -56,9 +56,10 @@
         <%= sanitize faculty.description, tag: %w(p)  %>
       </div>
       <% result = faculty.courses.count > 3 ? 4 : 6 %>
+      <div class="row">
       <% faculty.courses.each do |course| %>
           <% if course.visible == true %>
-              <div class="row">
+
                 <div class="col-md-<%= result %>">
                   <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -91,8 +92,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+
           <% end %>
       <% end %>
+      </div>
     </div>
 <% end %>

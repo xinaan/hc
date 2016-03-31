@@ -50,7 +50,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:level].any? %> ">
               <%= f.label 'Level', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.select :level, ['Certificate', 'Advanced', 'Diploma', 'Advance Diploma','Bachelor','Honours','Master'], {prompt:"Select a Level"}, class:"form-control"%>
+                <%= f.select :level, ['Foundation','Certificate', 'Advanced', 'Diploma', 'Advance Diploma','Bachelor','Honours','Master'], {prompt:"Select a Level"}, class:"form-control"%>
                 <% if @course.errors[:level].any? %>
                       <span class="help-block">
                           <% @course.errors.full_messages_for(:level).each do |msg| %>
@@ -64,7 +64,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:semester].any? %> ">
               <%= f.label 'Semester', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.select :semester, [1,2,3,4,6,8], {prompt:"Select a Semester"}, class:"form-control"%>
+                <%= f.select :semester, [1,2,3,4,5,6,7,8], {prompt:"Select a Semester"}, class:"form-control"%>
                 <% if @course.errors[:semester].any? %>
                       <span class="help-block">
                           <% @course.errors.full_messages_for(:semester).each do |msg| %>
@@ -78,7 +78,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:mode].any? %> ">
               <%= f.label 'Mode', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.select :mode, ['Full Time', 'Block Mode'], {prompt:"Select a Mode"}, class:"form-control"%>
+                <%= f.select :mode, ['Full Time', 'Block Mode','Distance'], {prompt:"Select a Mode"}, class:"form-control"%>
                 <% if @course.errors[:mode].any? %>
                       <span class="help-block">
                           <% @course.errors.full_messages_for(:mode).each do |msg| %>
@@ -92,7 +92,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:seats].any? %> ">
               <%= f.label 'Seats', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.number_field :seats, step: 10, class:"form-control" %>
+                <%= f.number_field :seats, step: 1, class:"form-control" %>
                 <% if @course.errors[:seats].any? %>
                       <span class="help-block">
                       <% @course.errors.full_messages_for(:seats).each do |msg| %>
@@ -106,7 +106,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:fee].any? %> ">
               <%= f.label 'Fee', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.number_field :fee, step: 500, class:"form-control" %>
+                <%= f.number_field :fee, step: any, class:"form-control" %>
                 <% if @course.errors[:fee].any? %>
                       <span class="help-block">
                       <% @course.errors.full_messages_for(:fee).each do |msg| %>

@@ -52,9 +52,9 @@
           </div>
         </div>
       </div>
-      <blockquote>
+      <div class="container" style="margin-bottom: 20px">
         <%= sanitize faculty.description, tag: %w(p)  %>
-      </blockquote>
+      </div>
       <% result = faculty.courses.count > 3 ? 4 : 6 %>
       <% faculty.courses.each do |course| %>
           <% if course.visible == true %>
@@ -80,7 +80,7 @@
                       </a>
 
 
-                      <div class="collapse in" id="<%= course.code %>" aria-expanded="false">
+                      <div class="collapse" id="<%= course.code %>" aria-expanded="false">
                         <ul style="margin-top:10px; margin-bottom:0;" class="list-group">
                           <% repeat = course.criterions.length %>
                           <% course.criterions.each_with_index  do |criterion, index| %>

@@ -17,8 +17,8 @@
       </tr>
       </thead>
       <tbody>
-      <% @faculties.each_with_index do |faculty, index| %>
-        <% faculty.courses.each do |course| %>
+      <% @faculties.each do |faculty| %>
+        <% faculty.courses.each_with_index  do |course, index| %>
          <% if course.visible == true %>
           <tr>
             <th scope="row"><%= index + 1 %></th>

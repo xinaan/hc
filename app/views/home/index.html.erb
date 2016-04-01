@@ -17,11 +17,11 @@
       </tr>
       </thead>
       <tbody>
-      <% @faculties.each do |faculty| %>
+      <% @faculties.each_with_index do |faculty, index| %>
         <% faculty.courses.each do |course| %>
          <% if course.visible == true %>
           <tr>
-            <th scope="row">1</th>
+            <th scope="row"><%= index + 1 %></th>
             <td><a href="#<%= faculty.short %>"><%= course.name %></a></td>
             <td><%= course.faculty.short %></td>
             <td><%= course.level %></td>

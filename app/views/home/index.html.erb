@@ -55,9 +55,16 @@
       <div class="container" style="margin-bottom: 20px">
         <%= sanitize faculty.description, tag: %w(p)  %>
       </div>
-      <% result = faculty.courses.count > 3 ? 4 : 6 %>
-      <div class="row">
-      <% faculty.courses.each do |course| %>
+      <% result = faculty.courses.count >= 3 ? 4 : 6 %>
+      <% count = faculty.courses.size %>
+      <% faculty.courses.each_with_index  do |course, index| %>
+          <% st = '<div class="row">' %>
+          <% st2 = '</div>' %>
+          <% row_name = result == 6 ? cycle(st,'',name: 'div1') : cycle(st,'','', name: 'div1') %>
+          <% row_name2 = result == 6 ? cycle('',st2,name: 'div2') : cycle('','',st2,name: 'div2') %>
+
+          <%= current_cycle(name= 'div1').html_safe %>
+
           <% if course.visible == true %>
 
                 <div class="col-md-<%= result %>">
@@ -92,9 +99,13 @@
                     </div>
                   </div>
                 </div>
-
+              <% if index == faculty.courses.size - 1 %>
+                  <%= st2.html_safe %>
+              <% else %>
+                <%= current_cycle(name= 'div2').html_safe %>
+              <% end %>
           <% end %>
       <% end %>
-      </div>
+
     </div>
 <% end %>

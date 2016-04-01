@@ -4,6 +4,7 @@
   <title>HC Course Page</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <%= csrf_meta_tags %>
 </head>
 <body style="padding-top: 45px;">
@@ -44,7 +45,12 @@
     <div style="padding:35px 15px;" class="jumbotron">
       <div class="row">
         <div class="container">
-
+          <% if Setting.find(1).alert != '' %>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <strong><%= Setting.find(1).alert %></strong>
+            </div>
+          <% end %>
         </div>
         <div class="col-md-8">
           <div class="container">

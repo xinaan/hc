@@ -29,7 +29,7 @@
             <td><%= course.semester %></td>
             <td><%=course.mode %></td>
             <td><%=course.seats %></td>
-            <td><%= number_to_currency(course.fee, unit: "MVR ") %></td>
+            <td><%= course.fee == 0 ? 'TBA' : number_to_currency(course.fee, unit: "MVR ") %></td>
           </tr>
          <% end %>
         <% end %>
@@ -37,6 +37,7 @@
       </tbody>
     </table>
   </div>
+  
 </div>
 
 <% @faculties.each do |faculty| %>
@@ -53,7 +54,7 @@
       <div class="container" style="margin-bottom: 20px">
         <%= sanitize faculty.description, tag: %w(p)  %>
       </div>
-      <% result = faculty.courses.count >= 3 ? 4 : 6 %>
+      <% result = (faculty.courses.count == 2 or faculty.courses.count == 4 or faculty.courses.count == 1) ? 6 : 4 %>
       <% count = faculty.courses.size %>
       <% faculty.courses.each_with_index  do |course, index| %>
           <% st = '<div class="row">' %>

@@ -53,7 +53,7 @@
       <div class="container" style="margin-bottom: 20px">
         <%= sanitize faculty.description, tag: %w(p)  %>
       </div>
-      <% result = faculty.courses.count >= 4 ? 4 : 6 %>
+      <% result = faculty.courses.count <= 4 ? 4 : 6 %>
       <% count = faculty.courses.size %>
       <% faculty.courses.each_with_index  do |course, index| %>
           <% st = '<div class="row">' %>

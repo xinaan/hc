@@ -8,7 +8,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:name].any? %> ">
               <%= f.label 'Name', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.text_field :name, placeholder:"Name",maxlength:50, class:"form-control" %>
+                <%= f.text_field :name, placeholder:"Name",maxlength:100, class:"form-control" %>
                 <% if @course.errors[:name].any? %>
                       <span class="help-block">
                       <% @course.errors.full_messages_for(:name).each do |msg| %>
@@ -36,7 +36,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:faculty_id].any? %> ">
               <%= f.label 'Faculty', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.select :faculty_id, Faculty.all.collect {|u| [u.short, u.id]}, {prompt:"Select a Faculty"}, class:"form-control"%>
+                <%= f.select :faculty_id, Faculty.all.order(:short).collect {|u| [u.short, u.id]}, {prompt:"Select a Faculty"}, class:"form-control"%>
                 <% if @course.errors[:faculty].any? %>
                       <span class="help-block">
                       <% @course.errors.full_messages_for(:faculty_id).each do |msg| %>
@@ -78,7 +78,7 @@
             <div class="form-group <%= "has-error" if @course.errors[:mode].any? %> ">
               <%= f.label 'Mode', class:"col-sm-2 control-label"%>
               <div class="col-sm-10">
-                <%= f.select :mode, ['Full Time', 'Block Mode','Distance'], {prompt:"Select a Mode"}, class:"form-control"%>
+                <%= f.select :mode, ['Full Time', 'Block Mode','Distance','Full Time/Block Mode'], {prompt:"Select a Mode"}, class:"form-control"%>
                 <% if @course.errors[:mode].any? %>
                       <span class="help-block">
                           <% @course.errors.full_messages_for(:mode).each do |msg| %>

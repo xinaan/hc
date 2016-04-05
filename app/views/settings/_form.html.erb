@@ -106,7 +106,7 @@
     <div class="form-group <%= "has-error" if @setting.errors[:alert].any? %> ">
       <%= f.label 'Alert', class:"col-sm-2 control-label"%>
       <div class="col-sm-10">
-        <%= f.text_field :alert, placeholder:"Short Name",maxlength:200, class:"form-control" %>
+        <%= f.text_field :alert, placeholder:"Alert Message",maxlength:200, class:"form-control" %>
         <% if @setting.errors[:alert].any? %>
 				  <span class="help-block">
 				  <% @setting.errors.full_messages_for(:alert).each do |msg| %>

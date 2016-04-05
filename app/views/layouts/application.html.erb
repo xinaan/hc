@@ -74,7 +74,7 @@
           <div class="container">
             <h1 class="text-center"><%= Setting.find(1).jheader %> </h1>
             <p style="padding-left: 20px; padding-right: 20px;" class="text-center"><%= sanitize Setting.find(1).jtext, tag: %w(p) %></p>
-            <p class="text-center"><a class="btn btn-primary btn-lg" target="_blank" href="http://mnu.edu.mv/images/students/forms/Application_Form_Revised%2015-4-2014.pdf" role="button">Apply Now »</a></p>
+            <p class="text-center"><a class="btn btn-primary btn-lg" target="_blank" href="<%= Setting.find(1).lform %>" role="button">Apply Now »</a></p>
           </div>
         </div>
 

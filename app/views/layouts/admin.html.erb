@@ -37,7 +37,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">HC | Admin Panel</a>
+      <a class="navbar-brand" href="<%= root_path %>">HC | Admin Panel</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -62,13 +62,14 @@
         <ul class="nav" id="side-menu">
 
           <li>
-            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
           </li>
+
           <li>
             <a class="<%= 'active' if current_page?(controller: 'faculties') %>" href="<%= faculties_path %>"><i class="fa fa-list fa-fw"></i> Faculty</a>
           </li>
           <li>
-            <a class="<%= 'active' if current_page?(controller: 'courses') %>" href="<%= courses_path %>"><i class="fa fa-users fa-fw"></i> Course</a>
+            <a class="<%= 'active' if current_page?(controller: 'courses') %>" href="<%= courses_path %>"><i class="fa fa-graduation-cap fa-fw"></i> Course</a>
           </li>
           <li>
             <a class="<%= 'active' if current_page?(controller: 'setting') %>" href="<%= edit_setting_path(Setting.find(1)) %>"><i class="fa fa-gear fa-fw"></i> Setting</a>

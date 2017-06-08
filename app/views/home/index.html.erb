@@ -62,7 +62,7 @@
           <% row_name = result == 6 ? cycle(st,'',name: 'div1') : cycle(st,'','', name: 'div1') %>
           <% row_name2 = result == 6 ? cycle('',st2,name: 'div2') : cycle('','',st2,name: 'div2') %>
           <%= current_cycle(name= 'div1').html_safe %>
-          <!-- The Cycle is <%= current_cycle(name= 'div1') %> -->
+          <!-- The Cycle is <%= current_cycle(name= 'div1').html_safe %> , Result is <%= result %> -->
           <% if course.visible == true %>
                 <div class="col-md-<%= result %>">
                   <div class="panel panel-primary">

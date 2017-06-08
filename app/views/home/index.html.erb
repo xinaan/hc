@@ -70,14 +70,14 @@
                       <h3 class="panel-title"> <%= course.name %></h3>
                     </div>
                     <div class="panel-body">
-                      <p class="text-justify">
+                      <!--<p class="text-justify">
                         <strong>Why do this?</strong><br>
-                      </p>
-                      <ul>
+                      </p>-->
+                      
                         <% course.pros.each do |pro| %>
-                            <li><%= pro.description %></li>
+                            <p><%= pro.description %></p>
                         <% end %>
-                        </ul>
+                      
                       <p></p>
                       <hr>
                       <a class="btn btn-primary" data-toggle="collapse" href="#<%= course.code %>" aria-expanded="false" aria-controls="<%= course.code %>">
